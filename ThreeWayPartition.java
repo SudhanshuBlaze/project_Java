@@ -2,7 +2,7 @@
 import java.util.*;
 class ThreeWayPartition{
 	public static void main(String[] args){
-		int arr[]={1, 14, 5, 20, 4, 2, 54, 20, 87, 98, 3, 1, 32};
+		int arr[]={1, 14, 5, 20, 4, 2, 54, 20, 87, 98,15, 3, 1, 32};
 		sort(arr);
 		System.out.println(Arrays.toString(arr));
 	}
@@ -19,6 +19,10 @@ class ThreeWayPartition{
 				else if(arr[mid]>high_range){
 					swap(arr,mid,high); // do not increment mid index as ,you will be needing the check which value has been swapped at mid index
 					high--;   
+				}
+				else if(arr[mid] > arr[high]){
+					swap(arr, low, mid);
+					mid++;
 				}
 				else    //if( low_range<=arr[mid] && arr[mid]<=high_range )
 					mid++;

@@ -3,10 +3,10 @@
 class MedianDiffSize{
 	
 // Function to calculate median
-static int getMedian(int ar1[], int ar2[],
+static float getMedian(int ar1[], int ar2[],
 					int n, int m){
 	int i=0,j=0;  
-	int m1=-1,m2=-1;
+	float m1=-1,m2=-1;
 	int count = 0;
 	if((n+m)%2==1){  //Odd number of elements in total
 
@@ -41,8 +41,8 @@ static int getMedian(int ar1[], int ar2[],
 
 public static void main(String[] args)
 {
-	int ar1[] = {2, 3, 5, 8};
-    int ar2[] = {10, 12, 14, 16, 18, 20};
+	int ar1[] = {1,2,3,4};
+    int ar2[] = {5,6,7,8};
 
 	int n1 = ar1.length;
 	int n2 = ar2.length;

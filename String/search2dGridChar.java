@@ -1,5 +1,3 @@
-// Java program to search
-// a word in a 2D grid
 import java.io.*;
 import java.util.*;
 
@@ -14,44 +12,25 @@ class search2dGridChar{
 	// This function searches in all
 	// 8-direction from point
 	// (row, col) in grid[][]
-	static boolean search2D(char[][] grid, int row,
-							int col, String word)
-	{
-		// If first character of word
-		// doesn't match with
-		// given starting point in grid.
-		if (grid[row][col] != word.charAt(0))
-			return false;
+	static boolean search2D(char[][] grid, int row, int col, String word){
+		int dir,i,rd, cd;
+		for( dir=0;dir<8;dir++) {
+			rd=row+x[dir];
+			cd=col+y[dir];
 
-		int len = word.length();
+			//start from because first char is already found
+			for(i=1;i<word.length();i++){
 
-		// Search word in all 8 directions
-		// starting from (row, col)
-		for (int dir = 0; dir < 8; dir++) {
-			// Initialize starting point
-			// for current direction
-			int k, rd = row + x[dir], cd = col + y[dir];
-
-			// First character is already checked,
-			// match remaining characters
-			for (k = 1; k < len; k++) {
-				// If out of bound break
-				if (rd >= R || rd < 0 || cd >= C || cd < 0)
+				if(rd>=R || cd>=C || rd<0 || cd<0) //must not exceed limits
+					break; 
+				else if(grid[rd][cd] != word.charAt(i))
 					break;
 
-				// If not matched, break
-				if (grid[rd][cd] != word.charAt(k))
-					break;
-
-				// Moving in particular direction
-				rd += x[dir];
-				cd += y[dir];
+				//proceed in same direction
+				rd+=x[dir];
+				cd+=y[dir];
 			}
-
-			// If all character matched,
-			// then value of must
-			// be equal to length of word
-			if (k == len)
+			if (i==word.length())
 				return true;
 		}
 		return false;
@@ -59,34 +38,27 @@ class search2dGridChar{
 
 	// Searches given word in a given
 	// matrix in all 8 directions
-	static void patternSearch(
-		char[][] grid,
-		String word)
-	{
+	static void patternSearch(char[][] grid, String word){
 		// Consider every point as starting
 		// point and search given word
 		for (int row = 0; row < R; row++) {
 			for (int col = 0; col < C; col++) {
 				if (search2D(grid, row, col, word))
 					System.out.println(
-						"pattern found at " + row + ", " + col);
+						word+" pattern found at " + row + ", " + col);
 			}
 		}
 	}
+	public static void main(String args[]){
+		char[][] grid = {
+			{ 'G', 'E', 'E', 'K', 'S', 'F', 'O', 'R', 'G', 'E', 'E', 'K', 'S' },
+			{ 'G', 'E', 'E', 'K', 'S', 'Q', 'U', 'I', 'Z', 'G', 'E', 'E', 'K' },
+			{ 'I', 'D', 'E', 'Q', 'A', 'P', 'R', 'A', 'C', 'T', 'I', 'C', 'E' }};
 
-	// Driver code
-	public static void main(String args[])
-	{
-		R = 3;
-		C = 13;
-		char[][] grid = { { 'G', 'E', 'E', 'K', 'S', 'F', 'O', 'R', 'G', 'E', 'E', 'K', 'S' },
-						{ 'G', 'E', 'E', 'K', 'S', 'Q', 'U', 'I', 'Z', 'G', 'E', 'E', 'K' },
-						{ 'I', 'D', 'E', 'Q', 'A', 'P', 'R', 'A', 'C', 'T', 'I', 'C', 'E' } };
+		R=grid.length;
+		C=grid[0].length;
 		patternSearch(grid, "GEEKS");
 		System.out.println();
-		patternSearch(grid, "EEE");
+		// patternSearch(grid, "EE");
 	}
 }
-
-// This code is contributed by rachana soma
-

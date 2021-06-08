@@ -1,3 +1,4 @@
+//Tow down approach
 import java.util.Arrays;
 public class LCS{
 
@@ -10,7 +11,7 @@ public class LCS{
 			return dp[i][j];
 		
 		else if(s1[i]==s2[j]){
-			return 1+lcs(s1,s2,i+1,j+1,dp); //increment both if there is a match
+			return dp[i][j]=1+lcs(s1,s2,i+1,j+1,dp); //increment both if there is a match
 		}
 		else{
 			int left=lcs(s1,s2,i+1,j,dp);

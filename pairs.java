@@ -10,7 +10,7 @@ import java.util.*;
 class pairs{
 
 	public static void main(String args[]){
-		int arr[]={1,5,7,-1,5};
+		int arr[]={3,3,3,1};
 		int target_sum=6;
 		System.out.println("Count of pairs= "+count(arr,target_sum));
 	}
@@ -34,7 +34,7 @@ class pairs{
 
 			//if (e,e) pair of same element satisfies the condition, 
             // then we need to ensure that the count is 
-           	// decreased by one.
+   //         	// decreased by one.
 			if(target_sum-e==e)  
 				count_twice--;
 		}

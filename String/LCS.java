@@ -23,7 +23,7 @@ public class LCS{
 	public static void main(String[] args){
 		String s1 = "AGGTAB";
 		String s2 = "GXTXAYB";
-		int dp[][]=new int[s1.length()+1][s2.length()+1];
+		int dp[][]=new int[s1.length()][s2.length()];
 
 		for (int[] row : dp)
             Arrays.fill(row, -1);
@@ -33,7 +33,7 @@ public class LCS{
 		int i=0, j=0;
 
 		System.out.println("Length of LCS is" + " " +
-									lcs( X, Y, i, j, dp ) );
+									lcs( X, Y, i, j, dp )+"\n" );
 
 		for (int[] row : dp)
             System.out.println(Arrays.toString(row));

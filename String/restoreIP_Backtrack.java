@@ -1,4 +1,4 @@
-/* 2^32 ip addresses(IPv4 is 32bit), we have limited(constant) amount of IP addresses
+ /* 2^32 ip addresses(IPv4 is 32bit), we have limited(constant) amount of IP addresses
 Time complexity: O(1),
 Space complexity: O(1)
 */
@@ -23,6 +23,7 @@ class restoreIP_Backtrack{
     }
     
     static void snapshotIP(List<String> res, String s, int index, int[] path, int segment){
+        //base case
         if(segment == 4 && index == s.length()){
             res.add(path[0]+"."+path[1]+"."+path[2]+"."+path[3]);
             return;
@@ -30,11 +31,12 @@ class restoreIP_Backtrack{
         else if(segment == 4 || index == s.length()){
             return;
         }
+
         for(int len = 1; len <= 3 && index + len <= s.length(); len++){
             String snap = s.substring(index,index+len);
             int val = Integer.parseInt(snap);
-                if(val > 255 || len >= 2 && s.charAt(index) == '0'){
-                break;
+                if(val > 255 || (len >= 2 && s.charAt(index) == '0')){
+                    continue;  //break;
             }
             path[segment] = val;
             snapshotIP(res,s,index+len,path,segment+1);

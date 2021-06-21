@@ -41,6 +41,7 @@ class restoreIP_Backtrack{
             path[segment] = val;
             snapshotIP(res,s,index+len,path,segment+1);
             path[segment] = -1; //undo the choice
+            System.out.println(Arrays.toString(path));
 
         }
     }

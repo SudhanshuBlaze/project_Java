@@ -1,4 +1,5 @@
 /*
+Optimal
 Time complexity: O(N)
 */
 import java.util.*;

@@ -89,7 +89,7 @@ class RearrangeCharsAdjacent_I {
 	// Driver program to test above function
 	public static void main(String args[])
 	{
-		String str = "abaa";
+		String str = "ababa";
 		rearrangeString(str);
 	}
 }

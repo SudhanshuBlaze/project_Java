@@ -1,3 +1,5 @@
+//Better
+
 import java.util.*;
 
 class SmallestDistinctWindow{
@@ -20,9 +22,10 @@ class SmallestDistinctWindow{
 		String sub ="",res="";
 
 
+		//check in each iteration, when we found required substring-> update
 		for(int i=0;i<str.length();i++){
 			Arrays.fill(visited,false);
-			sub="";
+			sub="";  //new substring for each iter.
 			count=0;
 
 			for(int j=i;j<str.length();j++){

@@ -1,14 +1,14 @@
 // Time complexity: O(N)
 // Space complexity: O(N)
-
+import java.util.*;
 class Longest_Suffix_Prefix{
 	public static void main(String args[]){
-		String pattern ="AAACAAAA";
+		// String pattern ="AACBCBCBCBCCCC";
 		// String pattern = "ABABCABAB";
-		// String pattern ="ABABCABAB";
+		String pattern ="ABCCABAB";
 		lps(pattern.toCharArray());
 	}
-
+//lps stands for longest proper prefix which is also suffix
 	static void lps(char[] pattern){
 		int N=pattern.length;
 		int lps[]=new int[N];
@@ -33,6 +33,7 @@ class Longest_Suffix_Prefix{
 				}
 			}
 		}
+		System.out.println(Arrays.toString(lps));
 		System.out.println(lps[N-1]);
 	}
 }

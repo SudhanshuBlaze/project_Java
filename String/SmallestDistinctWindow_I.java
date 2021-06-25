@@ -1,3 +1,4 @@
+//Better
 import java.util.*;
 
 class SmallestDistinctWindow_I{

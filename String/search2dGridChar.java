@@ -20,7 +20,7 @@ class search2dGridChar{
 
 			//start from because first char is already found
 			for(i=1;i<word.length();i++){
-
+				//check for bounds
 				if(rd>=R || cd>=C || rd<0 || cd<0) //must not exceed limits
 					break; 
 				else if(grid[rd][cd] != word.charAt(i))

@@ -7,7 +7,7 @@ class LongPalinSubstring{
 
 		int start=0, maxLength=1;  //for single character, ex. "abc", res->1;
 		int low, high;
-		int count = 0;
+		int count = 0;  //for counting all Palindromic subsequences
 		int len=str.length();
 
 		for(int i=1; i<len;i++){

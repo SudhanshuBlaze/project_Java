@@ -5,7 +5,8 @@ class Longest_Suffix_Prefix{
 	public static void main(String args[]){
 		// String pattern ="AACBCBCBCBCCCC";
 		// String pattern = "ABABCABAB";
-		String pattern ="ABCCABAB";
+		String pattern = "ABCABCABAB";
+		// String pattern ="ABCCABAB";
 		lps(pattern.toCharArray());
 	}
 //lps stands for longest proper prefix which is also suffix
@@ -14,7 +15,6 @@ class Longest_Suffix_Prefix{
 		int lps[]=new int[N];
 		int i=1;  //moves linearly
 		int slow_idx = 0;
-
 		while(i<N){
 			if(pattern[i]==pattern[slow_idx]){
 				slow_idx++;
@@ -32,6 +32,8 @@ class Longest_Suffix_Prefix{
 					i++;
 				}
 			}
+					System.out.println(slow_idx);
+
 		}
 		System.out.println(Arrays.toString(lps));
 		System.out.println(lps[N-1]);

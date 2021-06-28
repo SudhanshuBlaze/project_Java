@@ -1,13 +1,11 @@
-class check_2dGridChar_II{
+class search_2dGridChar_II{
 /* Approach: We are marking visited and then again we are putting the real value in
   it because if we do not put the real value then for different cases
   the '#' will be there */
 	static boolean findmatch(char mat[][], String pat, int x, int y,
 							int nrow, int ncol, int level){
-		int l = pat.length();
-
 		// Pattern matched
-		if (level == l)
+		if (level == pat.length())
 			return true;
 
 		// Out of Boundary || not a match
@@ -34,11 +32,9 @@ class check_2dGridChar_II{
 	// Function to check if the word exists in the grid or not
 	static int checkMatch(char mat[][], String pat, int nrow, int ncol){
 		int count = 0;
-		int l = pat.length();
-
 		// if total characters in matrix is
 		// less then pattern lenghth
-		if (l > nrow * ncol)
+		if (pat.length() > nrow * ncol)
 			return 0;
 
 		// Traverse in the grid
@@ -55,15 +51,15 @@ class check_2dGridChar_II{
 }
 
 	public static void main(String[] args){
-		// char grid[][] = {   "axmy".toCharArray(),
-		// 					"bgdf".toCharArray(),
-		// 					"xeet".toCharArray(),
-		// 					"raks".toCharArray() };
+		// char grid[][] = {    "axmy".toCharArray(),
+		// 										 "bgdf".toCharArray(),
+		// 										 "xeet".toCharArray(),
+		// 										 "raks".toCharArray() };
 
 		char grid[][] = {   "axmy".toCharArray(),
-							"bagf".toCharArray(),
-							"geet".toCharArray(),
-							"raks".toCharArray() };
+												"bagf".toCharArray(),
+												"geet".toCharArray(),
+												"raks".toCharArray() };
 
 		// Function to check if word exists or not
 		int r=grid.length;

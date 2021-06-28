@@ -8,7 +8,7 @@ public class LCS_iterative{
          that L[i][j] contains length of LCS of X[0..i-1] and Y[0..j-1] */
     for (int i=0; i<dp.length; i++){
       for (int j=0; j<dp[0].length; j++){
-
+      	//if anyone of the string is empty then return 0.
         if (i == 0 || j == 0)
             dp[i][j] = 0;   //fill first row and column with '0', we need it for comparison(padding)
         

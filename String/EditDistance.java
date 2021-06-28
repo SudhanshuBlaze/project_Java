@@ -12,16 +12,18 @@ class EditDistance{
 	}
 
 	static int editDist(char[] s1, char[] s2,int i, int j,int dp[][]) {
+		//when s2 is larger 
 		if(i>=s1.length) 
 			return s2.length -j;
-
+		//when s1 is larger
 		if(j>=s2.length)
 			return s1.length -i;
 
-		if( dp[i][j]!=-1)
+		if(dp[i][j]!=-1)
 			return dp[i][j];
 		if(s1[i]==s2[j])
 			return dp[i][j]=editDist(s1,s2,i+1,j+1,dp);
+
 
 		else
 			return dp[i][j]=1+ Math.min(editDist(s1,s2,i,j+1,dp),

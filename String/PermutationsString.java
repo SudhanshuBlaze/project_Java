@@ -1,6 +1,10 @@
+/* We can use a HashSet, when we have string with repetitive characters
+In this way we can remove the repetitive words
+*/
+
 class PermutationsString{
 	public static void main(String args[]){
-		String s="ABC";
+		String s="OOG";
 		getPermutations(s,0,s.length()-1);
 	}
 

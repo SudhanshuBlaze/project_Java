@@ -12,7 +12,7 @@ public class SmallestSubstringWindow {
 
 	public static String solution(String s1, String s2){
         int arrMap[] = new int[256];
-        int arrMap2[] = new int[256];   //{t:1, o:1, c:1 }
+        int arrMap2[] = new int[256];   //{t:1, o:1, c:1 }, this the requirement Map
 
         int ansCount = Integer.MAX_VALUE;
         String ans="";
@@ -31,6 +31,9 @@ public class SmallestSubstringWindow {
 	            }
 	        //reduction
 	        while(matchCount==s2.length()){
+	        	if(ans.length()==0 || (i+1-start)<ans.length())
+                    ans=s1.substring(start,i+1);   // we are using i+1 because we also want to include last char, 
+                    //because in substring() the last char is ignored by default
 
 	        	char chstart=s1.charAt(start);
 	        	//freq should not go below 0
@@ -40,10 +43,6 @@ public class SmallestSubstringWindow {
 	        	if(arrMap[chstart]< arrMap2[chstart])
 	        		matchCount--;
 	        	//update minimum substring
-	        	if(ans.length()==0 || (i+1-start)<ans.length())
-                    ans=s1.substring(start,i+1);   // we are using i+1 because we also want to include last char, 
-                    //because in substring() the last char is ignored by default
-
 	        	start++;
 	        }
 		}

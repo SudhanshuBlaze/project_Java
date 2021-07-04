@@ -1,8 +1,9 @@
+//Time Complexity: O(N^3)
 import java.util.*;
 class PermutationsString_II{
 
 	public static void main(String args[]){
-		StringBuilder available=new StringBuilder("OOG");
+		StringBuilder available=new StringBuilder("IOG");
 		StringBuilder chosen = new StringBuilder("");
 		Set<String> set = new HashSet<>();
 		permute(available, chosen, set);
@@ -15,7 +16,7 @@ class PermutationsString_II{
 		//no chars are left to choose and explore from
 		if(available.length()==0){
 			//we need to convert StringBuilder to String, to work with Set
-			if(set.contains(chosen.toString())==false){
+			if(!set.contains(chosen.toString())){
 				set.add(chosen.toString());
 				System.out.println(chosen);
 			}

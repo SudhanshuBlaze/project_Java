@@ -1,16 +1,16 @@
-// Following program is a Java implementation
-// of Rabin Karp Algorithm given in the CLRS book
+/* Following program is a Java implementation
+of Rabin Karp Algorithm given in the CLRS book
 
+Reference: https://medium.com/swlh/rabin-karp-algorithm-using-polynomial-hashing-and-modular-arithmetic-437627b37db6
+*/
 public class Rabin_Karp{
 	// d is the number of characters in the input alphabet
 	public final static int d = 256;
 	
-	/* pat -> pattern
-		txt -> text
-		q -> A prime number,
-		we are taking q as a prime number so that we can minimize large hash value. 
-		why we are minimizing? we may get a larger hash value than the the data type that we are using,
-		so to resolve this we are taking q.
+	/* q -> A prime number,
+	The value for Q would usually be a large prime number 
+	— as large as it can be without compromising arithmetic performance.
+	The smaller the value of Q, the higher the chances of spurious hits.
 	*/
 	static void search(String pat, String txt, int q){
 		int M = pat.length();
@@ -51,21 +51,21 @@ public class Rabin_Karp{
 	
 			// Calculate hash value for next window of text: Remove
 			// leading digit, add trailing digit
-			if ( i < N-M ){
+			if (i < N-M ){
 				txtHash = (d*(txtHash - txt.charAt(i)*h) + txt.charAt(i+M))%q;
-	
+
 				//since we are using: mod q, value of "txtHash" lies in (-q,q)
 				if (txtHash < 0)
 				txtHash = (txtHash + q); // We might get negative value of txtHash, converting
 				//it to positive
-			}
+			// }
 		}
 	}
 	
 	/* Driver Code */
 	public static void main(String[] args)
 	{
-		String txt = "GEEKS FOR GEEKS hha GEEKS";
+		String txt = "GEEKS FOR JEEK";
 		String pat = "GEEK";
 			
 		// A prime number

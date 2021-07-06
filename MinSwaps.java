@@ -14,7 +14,7 @@ class MinSwaps{
 
 		for(int i=0; i<arr.length;i++){
 			if(arr[i]<arr[pivot]){
-				// increment count only if slow_idx is not equal to current index
+// increment count only if slow_idx is not equal to current index-> Useful swaps
 				if(i!=slow_idx) 
 					count++;
 				swap(arr,i,slow_idx);

@@ -1,9 +1,7 @@
-// A Java program for merging overlapping intervals 
 
 import java.util.*;
  class MergeIntervals { 
-	public static void mergeIntervals(Interval arr[]) 
-	{ 
+	public static void mergeIntervals(Interval arr[]) { 
 		// Empty array 
 		if (arr.length == 0) 
 			return; 
@@ -12,19 +10,20 @@ import java.util.*;
 		Stack<Interval> stack=new Stack<>(); 
 	
 		// sort the intervals in increasing order of start time (Ascending order)
-		Arrays.sort(arr,new Comparator<Interval>(){ 
-			public int compare(Interval i1,Interval i2) 
-			{ 
-				return i1.start-i2.start; 
-			} 
-		}); 
-	
+		// Arrays.sort(arr,new Comparator<Interval>(){ 
+		// 	public int compare(Interval i1,Interval i2) 
+		// 	{ 
+		// 		return i1.start-i2.start; 
+		// 	} 
+		// }); 
+		
+		Arrays.sort(arr,(i1,i2) -> i1.start-i2.start);
+
 		// push the first interval to stack 
 		stack.push(arr[0]); 
 	
 		// Start from the next interval and merge if necessary 
-		for (int i = 1 ; i < arr.length; i++) 
-		{ 
+		for (int i = 1 ; i < arr.length; i++){ 
 			// get interval from stack top 
 			Interval top = stack.peek(); 
 	
@@ -37,18 +36,20 @@ import java.util.*;
 			// if control reaches the below block then its a case of overlapping intervals.
 			else if(top.end <arr[i].end){
 				top.end = arr[i].end;
-				stack.pop();
-				stack.push(top);
+				stack.pop();   //pop old Interval
+				stack.push(top);  //push updated Interval
 			}
 			
 		} 
-		// Print contents of stack 
+		// Prints stack linearly
 		System.out.print("The Merged Intervals are: "); 
-		while (!stack.isEmpty()) 
-		{ 
-			Interval obj = stack.pop(); 
-			System.out.print("["+obj.start+","+obj.end+"] "); 
-		} 
+		for(Interval i : stack)  //uses iterator internally
+			System.out.print("["+i.start+","+i.end+"] "); 
+
+		// while (!stack.isEmpty()) { 
+		// 	Interval obj = stack.pop(); 
+		// 	System.out.print("["+obj.start+","+obj.end+"] "); 
+		// } 
 	} 
 
 	public static void main(String args[]) { 

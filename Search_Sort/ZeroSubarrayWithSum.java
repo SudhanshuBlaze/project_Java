@@ -17,17 +17,20 @@ public class ZeroSubarrayWithSum{
 		boolean found = false;
 		Set<Integer> set = new HashSet<>();
 		int sum = 0;
+		int count=0;
 		for (int element : a) {
-			set.add(sum);
+			set.add(sum);  // we are adding 0 in case if totalSum becomes 0, 
+			//then we have a 0 in the HashSet to check with
 			sum += element;
       //Zero sum will only exist if the cumulative sum of the elements excluding the current element
       //and after including the current element are equal
 			if (set.contains(sum - k)) {
+				count++;
 				found = true;
 			}
 		}
 
-		System.out.println("found " + found);
+		System.out.println("found " + count);
 
 	}
 

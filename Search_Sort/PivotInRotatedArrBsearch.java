@@ -19,7 +19,7 @@ class PivotInRotatedArrBsearch{
 			int prev= (mid-1+N)%N;
 			
 			if(arr[low]<=arr[high]){
-				System.out.println("Returned low pointer\n"+"low: "+low+" high: "+high);
+				System.out.println("Returned low pointer\n"+"low: "+low+" `high: "+high);
 				return low;
 			}
 			else if(arr[prev]>arr[mid] && arr[mid]< arr[next]){

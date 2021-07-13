@@ -15,14 +15,28 @@ class ROTI_PRATA{
 		while(low<= high){
 			
 			long mid=low +(high-low)/2;
-			if(allocateCooks(arr, mid, k)){
+			if(allocateAP(arr, mid, k)){
 				res=mid;
 				high=mid-1;
 			}
 			else
 				low=mid + 1;
 		}
+
 		return res;
+	}
+
+	static boolean allocateAP(int arr[], long barrierTime, int reqdParatha){
+		int currParatha=0;
+		for(int i=0;i<arr.length;i++){
+			double d=arr[i],a=arr[i], S=barrierTime;
+
+			double ans= ((-2*a+d)+Math.sqrt(Math.pow(2*a-d,2)+ 8*d*S))/(2*d);
+			currParatha+= ans;
+		}
+		if(currParatha<reqdParatha)
+			return false;
+		return true;
 	}
 	static boolean allocateCooks(int arr[], long barrierTime, int reqdParatha){
 		int currParatha=0;

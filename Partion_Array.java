@@ -1,9 +1,5 @@
-
-	import java.util.*;
-
+import java.util.*;
 public class Partion_Array {
-	
-
 		public static void main(String[] args) {
 
 			int a[] = {2,1,2,3, 4, 8};

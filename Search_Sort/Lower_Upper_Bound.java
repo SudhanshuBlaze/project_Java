@@ -47,11 +47,11 @@ class Lower_Upper_Bound{
 
 	// Driver Code
 	public static void main(String[] args){
-		int arr[] = { 4, 6, 10, 12, 18, 20 };
+		int arr[] = { 4,6, 10, 12, 18, 20 ,20};
 		int N = arr.length;
 
 		// Element whose lower bound and upper bound to be found
-		int X = 21;
+		int X = 6;
 		System.out.println(lower_bound(arr, N, X));
 		System.out.println(upper_bound(arr, N, X));
 	}

@@ -16,15 +16,12 @@ class ThreeWayPartition{
 					low++;
 					mid++;
 				}
-				else if(arr[mid]>high_range){
-					swap(arr,mid,high); // do not increment mid index as ,you will be needing the check which value has been swapped at mid index
-					high--;   
+				else if(arr[mid] >high_range){
+					swap(arr, mid, high);
+					high--;
 				}
-				else if(arr[mid] > arr[high]){
-					swap(arr, low, mid);
-					mid++;
-				}
-				else    //if( low_range<=arr[mid] && arr[mid]<=high_range )
+				//if between the range
+				else
 					mid++;
 		}
 	}

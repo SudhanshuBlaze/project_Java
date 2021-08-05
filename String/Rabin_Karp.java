@@ -19,7 +19,7 @@ public class Rabin_Karp{
 		int patHash = 0; // hash value for pattern
 		int txtHash = 0; // hash value for txt
 		int h = 1;
-	
+
 		// The value of h would be "pow(d, M-1)%q"
 		for (i = 0; i < M-1; i++)
 			h = (h*d)%q;
@@ -29,8 +29,7 @@ public class Rabin_Karp{
 		for (i = 0; i < M; i++){
 			patHash = (d*patHash + pat.charAt(i))%q;
 			txtHash = (d*txtHash + txt.charAt(i))%q;
-		}
-	
+
 		// Slide the pattern over text one by one
 		for (i = 0; i <= N - M; i++){
 	
@@ -58,7 +57,7 @@ public class Rabin_Karp{
 				if (txtHash < 0)
 				txtHash = (txtHash + q); // We might get negative value of txtHash, converting
 				//it to positive
-			// }
+			}
 		}
 	}
 	
@@ -69,7 +68,7 @@ public class Rabin_Karp{
 		String pat = "GEEK";
 			
 		// A prime number
-		int q = 101;
+		int q = 121;
 		
 		// Function Call
 		search(pat, txt, q);

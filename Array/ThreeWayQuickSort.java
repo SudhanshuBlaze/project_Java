@@ -1,7 +1,7 @@
 import java.util.*;
 class ThreeWayQuickSort{
 	public static void main(String args[]){
-		int arr[]={3,2,1};
+		int arr[]={3,2,1,1,1,1,1,0};
 		quickSort(arr,0,arr.length-1);
 		System.out.println(Arrays.toString(arr));
 	}

@@ -1,5 +1,9 @@
- class Detect_Remove_Loop{
-       public static void main(String[] args){
+/* remove function takes O(N^2) time
+Approach of remove(): run the meet pointer entirely in the loop an check whether start pointer 
+has reached the loop head or not.
+*/
+class Detect_Remove_Loop{
+    public static void main(String[] args){
         LinkedList list = new LinkedList();
         // list.head = new Node(50);
         // list.head.next = new Node(20);
@@ -15,58 +19,47 @@
  
         // Creating a loop for testing
         head.next.next.next.next.next = head.next.next;
-        detectAndRemoveLoop(head);
+        System.out.println("Loop found: "+detectAndRemoveLoop(head));
         
-        System.out.println("Linked List after removing loop : ");
+        System.out.print("Linked List after removing loop: ");
         list.printList(head);
     }
-    static int detectAndRemoveLoop(Node node){
-        Node slow = node, fast = node;
-        while (slow != null && fast != null
-               && fast.next != null) {
+    static boolean detectAndRemoveLoop(Node head){
+        Node slow = head, fast = head;
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
 
             // If slow and fast meet at same point then loop
             // is present
             if (slow == fast) {
-                removeLoop(slow, node);
-                return 1;
+                removeLoop(slow, head);
+                return true;
             }
         }
-        return 0;
+        return false;
     }
  
-    // Function to remove loop
-    static void removeLoop(Node loop, Node curr){
-        Node ptr1 = null, ptr2 = null;
- 
-        /* Set a pointer to the beginning of the Linked List
-         and move it one by one to find the first node which
-         is part of the Linked List */
-        ptr1 = curr;
-        while (1 == 1) {
- 
-            /* Now start a pointer from loop_node and check
-             if it ever reaches ptr2 */
-            ptr2 = loop;
-            while (ptr2.next != loop && ptr2.next != ptr1) {
-                ptr2 = ptr2.next;
+    // Function to remove loop-> O(N^2)
+    static void removeLoop(Node meetPoint, Node head){
+        Node newEntry = head, inLoop = null;
+         // Set a pointer to the beginning of the Linked List
+         // and move it one by one to find the first node which is part of the Loop
+        newEntry = head;
+        while (true) {
+            /* Now newEntry a pointer from meetPoint_node and check if it ever reaches inLoop */
+            inLoop = meetPoint;  //re-initialize
+            //note: here inLoop is running only upto the prev node of meetPoint
+            while (inLoop.next != meetPoint && inLoop.next != newEntry) {
+                inLoop = inLoop.next;
             }
- 
-            /* If ptr2 reahced ptr1 then there is a loop. So
-             break the loop */
-            if (ptr2.next == ptr1) {
+            //check whether newEntry pointer is arrived upto the meetPoint or not
+            if (inLoop.next == newEntry) {
+                inLoop.next = null;   // terminate loop
                 break;
             }
- 
-            /* If ptr2 did't reach ptr1 then try the next
-             * node after ptr1 */
-            ptr1 = ptr1.next;
+             // If inLoop did't reach newEntry then try the next node after newEntry 
+            newEntry = newEntry.next;
         }
- 
-        /* After the end of loop ptr2 is the last node of
-         the loop. So make next of ptr2 as NULL */
-        ptr2.next = null;
-    }
+     }
 }

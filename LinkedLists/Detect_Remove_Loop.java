@@ -1,14 +1,17 @@
-/* remove function takes O(N^2) time
-Approach of remove(): run the meet pointer entirely in the loop an check whether start pointer 
-has reached the loop head or not.
+/*Approach:  
+Approach of remove(): 
+    run the meet pointer entirely in the loop an check whether start pointer 
+    has reached the loop head or not.
 
-Working: In the beginning the slow and fast pointer start from same position, 
-dist between them is 0, on first iteration dist becomes 1, second iteration dist becomes 2,
-with every iteration distance between slow and fast pointers increase by 1,
+Working: 
+    In the beginning the slow and fast pointer start from same position, 
+    dist between them is 0, on first iteration dist becomes 1, second iteration dist becomes 2,
+    with every iteration distance between slow and fast pointers increase by 1,
 
-So when the distance between them becomes equal to the lenght of the Cycle or Loop,
-they meet.
-*/
+    So when the distance between them becomes equal to the lenght of the Cycle or Loop,
+    they meet.
+    NOTE: In case of Circular LinkedList where tail points to head, slow and fast pointer always
+    meets where they start from, if they start from HEAD they meet at HEAD*/
 class Detect_Remove_Loop{
     public static void main(String[] args){
         LinkedList list = new LinkedList();

@@ -4,7 +4,7 @@ class ReverseLList_Iter{
 		// ll.addLast(10);
 		// ll.addLast(20);
 		// ll.addLast(30);
-		LinkedList<String> ll=new LinkedList<>();
+		LinkedListG<String> ll=new LinkedListG<String>();
 		ll.addLast("What");
 		ll.addLast("is");
 		ll.addLast("Up!");

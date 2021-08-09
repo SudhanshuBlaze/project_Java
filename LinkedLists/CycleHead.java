@@ -1,7 +1,15 @@
 /*
-Approach: L1+L2= nC 
+Approach: 
+dist by fast= 2(dist by slow)
+2(L1+L2)= L1+L2+nC
+            
+        L1+L2= nC 
         => L1=nC-L2
-        Where,L1 is lenght of 
+        Where,L1 is length from Head to cycleHead,
+        L2 is length from cycleHead to meetPoint 
+
+NOTE: In case of Circular LinkedList where tail points to head, slow and fast pointer always
+meets where they start from, if they start from HEAD they meet at HEAD
 */
 class CycleHead{
    public static void main(String[] args){

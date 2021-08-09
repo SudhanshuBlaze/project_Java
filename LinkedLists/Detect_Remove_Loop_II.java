@@ -51,18 +51,19 @@ class Detect_Remove_Loop_II{
     static void removeLoop(Node meetPoint, Node head){
         Node newEntry=head;
         if(newEntry!=meetPoint){
-        
             while(meetPoint.next!=newEntry.next){
                 meetPoint=meetPoint.next;
                 newEntry=newEntry.next;
             }
             meetPoint.next=null;
         }
-        /* Corner case: if fast and slow pointer meet at first position of cycle */
+        /* Corner case: if fast and slow pointer meet at first position of cycle,
+        This case is occured only in case of Circular LinkedList */
         else{
             while(meetPoint.next!=newEntry){
                 meetPoint=meetPoint.next;
             }
+            //this will lead to Tail or element previous of Head
             meetPoint.next=null;
         }
      }

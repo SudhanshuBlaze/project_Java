@@ -1,6 +1,13 @@
 /* remove function takes O(N^2) time
 Approach of remove(): run the meet pointer entirely in the loop an check whether start pointer 
 has reached the loop head or not.
+
+Working: In the beginning the slow and fast pointer start from same position, 
+dist between them is 0, on first iteration dist becomes 1, second iteration dist becomes 2,
+with every iteration distance between slow and fast pointers increase by 1,
+
+So when the distance between them becomes equal to the lenght of the Cycle or Loop,
+they meet.
 */
 class Detect_Remove_Loop{
     public static void main(String[] args){

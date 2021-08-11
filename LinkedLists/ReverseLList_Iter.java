@@ -19,7 +19,7 @@ class ReverseLList_Iter{
 			curr.next=prev;
 			prev=curr;
 			curr=next;
-		}
+		} //at the end of this loop curr & next becomes null
 		head=prev;
 		return head;
 	}

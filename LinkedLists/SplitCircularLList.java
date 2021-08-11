@@ -1,11 +1,11 @@
 class SplitCircularLList{
 	public static void main(String args[]) {
 		LinkedList list = new LinkedList();
-        // list.addLast(2);
+        list.addLast(2);
         list.addLast(15);
-        // list.addLast(20);
-        // list.addLast(13);
-        // list.addLast(1);
+        list.addLast(20);
+        list.addLast(13);
+        list.addLast(1);
 
         	//making the loop circular, by pointing last node to head of list
 	        Node curr=list.head;
@@ -18,7 +18,8 @@ class SplitCircularLList{
         split(list.head);
  	}
  	static void printCircularList(Node head){
- 		Node curr = head;
+ 		if(head==null) return;
+        Node curr = head;
  		do{
  			System.out.print(curr.data+"->");
  			curr = curr.next;

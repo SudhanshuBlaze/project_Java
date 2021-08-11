@@ -8,7 +8,7 @@ class Node {
 }
 public class LinkedList{
 	//Don't make it static, we` want different for different LinkedList instances
-	Node head;
+	Node head=null;
 	boolean isEmpty() {return head==null;}
 
 	void printList(Node head){

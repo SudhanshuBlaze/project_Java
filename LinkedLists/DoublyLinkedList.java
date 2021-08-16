@@ -8,7 +8,7 @@ class Node {
 	}
 }
 public class DoublyLinkedList{
-	//Don't make it static, we` want different for different LinkedList instances
+	//Don't make it static, we want different for different LinkedList instances
 	Node head=null;
 	boolean isEmpty() {return head==null;}
 
@@ -34,11 +34,24 @@ public class DoublyLinkedList{
 		toAdd.prev=temp;
 	}
 
+	void addFirst(int data){
+		if(head==null){
+			head=new Node(data); 
+			return;   //end 
+		}
+		//terminate loop when at last node
+		Node toAdd=new Node(data);
+		toAdd.next =head;
+		head.prev=toAdd;
+		head=toAdd;
+	}
+	
 	public static void main(String args[]){
 		DoublyLinkedList ll = new DoublyLinkedList();
 		ll.addLast(10);
 		ll.addLast(1);
 		ll.addLast(3);
+		ll.addFirst(9);
 		ll.printList(ll.head);
 	}
 }

@@ -1,4 +1,4 @@
-// Java program to clone a linked list with random pointers
+// Note: LinkedList constructor 
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,8 +22,7 @@ class LinkedList
 	Node head;//Linked list head reference
 
 	// Linked list constructor
-	public LinkedList(Node head)
-	{
+	public LinkedList(Node head){
 		this.head = head;
 	}
 

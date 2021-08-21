@@ -27,7 +27,7 @@ class Flatten_LList{
 			result.bottom = merge(a.bottom, b);
 		}
 
-		else{
+		else{ //b.data<=a.data
 			result = b;
 			result.bottom = merge(a, b.bottom);
 		}

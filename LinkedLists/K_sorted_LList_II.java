@@ -1,3 +1,9 @@
+/*Time complexity: O(N*logK), insertion of total N elements: O(N)
+insertion takes O(logK),
+
+more accurate representation: 
+O((N-K)*logK), because k element are already inserted in O(K*logK)
+*/
 import java.util.*;
 class K_sorted_LList_II{
 	public static void main(String[] args){

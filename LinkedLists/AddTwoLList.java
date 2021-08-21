@@ -31,7 +31,7 @@ class AddTwoLList{
         l1.printList(addBoth(h1,h2));
 	}
 	static Node addBoth(Node l1, Node l2){
-		Node resHead = new Node(0);
+		Node resHead = new Node(-1);
 		Node curr=resHead;
 		int sum,carry=0;
 		while(l1!=null || l2!=null || carry==1){
@@ -45,6 +45,8 @@ class AddTwoLList{
 				l2=l2.next;
 			}
 			sum+=carry;
+			//carry would be there if number is >=10 so we divide by 10, 
+			//if it gives then carry of 1
 			carry=sum/10;  
 			curr.next=new Node(sum%10);			
 			curr=curr.next;

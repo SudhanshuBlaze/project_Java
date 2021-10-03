@@ -16,7 +16,7 @@ public class LCS_iterative{
         else if (X[i-1] == Y[j-1]) //if there is a match, then increment the new number with 1(memoization)
             dp[i][j] = dp[i-1][j-1] + 1;
         else
-        	//continue the greatest value onto the next cell
+        	// continue the greatest value onto the next cell
             dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]); // since we want longest, so we have to always take the greater value 
       }
     }

@@ -24,7 +24,7 @@ class QuickSort{
 		int small_index =start-1;  //alt. small_index=start, later small_index++, do not add +1 while returning or swapping the pivot
 		int pi = arr[end];
 		int i;
-		for(i=start;i< end;i++){  // i runs between subarr[start,end]
+		for(i=start;i< end;i++){  // i runs between subarr[start,end-1], because last element pivot
 			if(arr[i] < pi){      // comparing all the elements of array
 				small_index++;	  // increment small_index if condition is true, else it stays there with larger number
 				swap(arr,small_index,i);				

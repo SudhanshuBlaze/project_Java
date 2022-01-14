@@ -4,8 +4,8 @@ import java.io.*;
 
 class Stock_II {
 	public static void main (String[] args) {
-	
-	// int price[] = {2, 30, 15, 10, 8, 25, 80}; 
+	// z-x=72 or (y-x) + (z-y) 
+	int price[] = {2, 30, 15, 10, 8, 25, 80}; 
 	// int price[] = {2, 1,1,1,15}; 
 	// int price[] = {2, 30, 15, 10, 8, 25, 80,1,201};
 	// int price[] = {12, 14, 17, 10, 14, 13, 12, 15}; 

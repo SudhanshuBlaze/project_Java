@@ -30,4 +30,4 @@ class ThreeWayPartition{
 		arr[a]=arr[b];
 		arr[b]=tmp;
 	}
-}
+} 

@@ -1,4 +1,4 @@
-// sort an array of 0s, 1s and 2s
+// sort an array of 0s, 1s and 2s -> QuickSort partition function does not work properly
 import java.util.*;
 class DutchNationalFlag{
 	public static void main(String[] args){

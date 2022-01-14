@@ -1,4 +1,4 @@
-//Optimal
+// Optimal
 import java.util.*;
 
 class RearrangeCharsAdjacent_II {
@@ -31,16 +31,19 @@ class RearrangeCharsAdjacent_II {
             if(freq.get(next)>0)
                 maxHeap.add(next);
         }
+        // here the size of the maxHeap is 1
         if(!maxHeap.isEmpty()){
             if(freq.get(maxHeap.peek())>1)
-                return "";
+                return "";  //when freq of a element is really high such that 
+            // it cannot be rearranged properly. Ex: 'bbba'
             else
-                res.append(maxHeap.poll());
+                res.append(maxHeap.poll()); //when freq of remaining elements is 1. Ex. bba
         }
         return res.toString();
 	}
 	public static void main(String args[]){
-		String str = "ababa";
+		// String str = "bbababb";
+        String str = "bbaba";
 		System.out.println(rearrangeString(str));
 	}
 }

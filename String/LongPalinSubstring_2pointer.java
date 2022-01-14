@@ -1,7 +1,7 @@
 // Time complexity-> O(N^2)
 // Space complexity->O(1)
 
-class LongPalinSubstring{
+class LongPalinSubstring_2pointer{
 
 	static String find(String str){
 
@@ -42,7 +42,8 @@ class LongPalinSubstring{
 	}
 
 	public static void main(String[] args){
-		String str = "aab";
+		// String str = "aab";
+		String str = "aabcbcdbca";
 		System.out.println("Length is: " + find(str));
 	}
 }

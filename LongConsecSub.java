@@ -10,32 +10,23 @@ class LongConsecSub {
 
 	static int findLongestConseqSubseq(int arr[], int n) 
 	{ 
-		HashSet<Integer> set = new HashSet<Integer>(); // take cares of duplicate elements
-		int ans = 1,ct=1; 
-
-		// Hash all the array elements 
-		for (int i = 0; i < n; ++i) 
-			set.add(arr[i]); 
-
-		// check each possible sequence from the start 
-		// then update optimal length 
-		for (int i = 0; i < n; ++i) 
-		{ 
-			// if current element is the starting 
-			// element of a sequence 
-			if (!set.contains(arr[i] - 1)){
-				// Then check for next elements 
-				// in the sequence 
-				
-				ct=1; // reset counter
-				while (set.contains(arr[i] +ct)){
-					ct++;
-				// update optimal length if this length is more 
-					ans=Math.max(ans,ct);
-				} 
-			}
-		} 
-		return ans; 
+		HashSet<Integer> set=new HashSet<Integer>();
+	   int maxCount=0, count;  //if empty array by default maxCount is 0
+	   for(int e: arr)
+	    set.add(e);
+	    
+	    for(int i=0;i<n;i++){
+	        if(!set.contains(arr[i]-1)){
+	            count=1; //one element present so count 1 by default
+	            int nextSubs=arr[i]+1;  //used to find next subsequences
+	            while(set.contains(nextSubs)){
+	                nextSubs++;
+	                count++;
+	            }
+	   	        maxCount=Math.max(maxCount,count);
+	        }
+	    }
+	    return maxCount;
 	} 
 
 	// Driver Code 

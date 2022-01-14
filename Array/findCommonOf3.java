@@ -18,7 +18,6 @@ class findCommonOf3
 				k++;
 			}
 
-
 			// x < y 
 			else if(ar1[i] < ar2[j])
 				i++;

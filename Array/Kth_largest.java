@@ -1,3 +1,6 @@
+// 1) Using Heap
+// 2) Using BubbleSort
+
 // Implementation of Max-heap for Sorting in Ascending order
  //A simple optomization is to create a Max Heap of the given n elements and call heapify() k times.
  // max_heap extracts the largest element and puts it at last.
@@ -10,13 +13,15 @@ class Kth_largest{
 
 	public static void main(String[] args){
 		// int arr[]={4,10,5,3,1};
-		sort(arr,arr.length,1);   //4th largest element
+		sort(arr,arr.length,2);
+		bubbleSort(arr,arr.length,2);  
+
 		System.out.println(Arrays.toString(arr));
 	}
 
 	static void sort(int[] arr,int len,int k){
 
-		int i,calls=0;
+		int i,calls=0;  //calls is num of function calls
 		//creating a max heap(re-arrange array)
 		for(i=len/2-1;i>=0;i--)
 			heapify(arr,len,i);    // heapify executes 1 or no times for each iteration, does not recur
@@ -25,8 +30,8 @@ class Kth_largest{
 		for(i=len-1;i>=0;i--){
 
 			if(calls==k){
-				System.out.println(arr[arr.length-k]);
-				System.exit(0);
+				System.out.println("Using HeapSort: "+arr[arr.length-k]);
+				return;
 			}
 
 			swap(0,i);               // 'i' is the limit reached(or length of array)
@@ -57,5 +62,20 @@ class Kth_largest{
 		int temp=arr[a];
 		arr[a]=arr[b];
 		arr[b]=temp;
+	}
+
+	static void bubbleSort(int arr[],int len,int k){
+		int i,j,temp;
+		for(i = 0;i<k;i++){		  // with every iteration it takes max number to end,
+			for(j = 0;j<len-i-1;j++){   // last number is not to be checked 
+				if(arr[j]>arr[j+1]){
+					temp=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=temp;
+				}
+			}
+			// System.out.println(Arrays.toString(arr));
+		}
+		System.out.println("Using BubbleSort: "+arr[len-k]);
 	}
 }

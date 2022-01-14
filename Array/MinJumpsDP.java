@@ -1,5 +1,5 @@
 
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * Date 06/12/2014 
@@ -21,7 +21,7 @@ import java.util.Arrays;
  */
 public class MinJumpsDP {
 
-     static int minJump(int arr[],int result[]){ //O(N^2) ,DP
+     static int minJump(int arr[],int steps[]){ //O(N^2) ,DP
         
         int []jump = new int[arr.length];
         jump[0] = 0;
@@ -31,55 +31,63 @@ public class MinJumpsDP {
             jump[i] = Integer.MIN_VALUE;
         }
         //alt .replace all zeroes with min value
-        
+
+        // [1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9]
+
         for(int i=1; i < arr.length; i++){
             for(int j=0; j < i; j++){
 
                 if(arr[j] + j >= i){
+                    // +1 signifies NUMBER of jumps required to reach the current position
+                    // would be ONE more or +1 than the position from which its jumping
                         jump[i] = jump[j] + 1;  
-                        result[i] = j;
+                        steps[i] = j;  //stores the location from which we jump to reach the current position
                     break;
                 }
             }
         }
-        
+        System.out.println(Arrays.toString(jump));
         return jump[jump.length-1];
     }
 
     
-     static int jump(int[] nums) {  // O(N) solution 
-        if (nums.length == 1) {
-            return 0;
-        }
-        int count = 0;
-        int i = 0;
-        while (i + nums[i] < nums.length - 1) {
-            int maxVal = 0;
-            int maxValIndex = 0;
-            for (int j = 1; j <= nums[i]; j++) {
-                if (nums[j + i] + j > maxVal) {
-                    maxVal = nums[j + i] + j;
-                    maxValIndex = i + j;
+     static int minJumpOptimal(int[] arr) {  // O(N) solution 
+        int maxReach = arr[0]; 
+        int steps = arr[0];  
+        int jump=1; //result-> stores minJumps
+
+        if(arr.length==1) return 0;
+        else if(arr[0]==0) return -1;  //can't jump anywhere
+        else{
+            for(int i=1; i<arr.length; i++){
+                maxReach = Math.max(maxReach,arr[i]+i); 
+                steps--;
+                if(steps==0){
+                    jump++;
+                    steps=maxReach-i;
+                    // can't go any further
+                    if(i>=maxReach)
+                        return -1;
                 }
             }
-            i = maxValIndex;
-            count++;
+            return jump;
         }
-        return count + 1;
     }
     
     public static void main(String args[]){
         // MinJumpsDP mj = new MinJumpsDP();
-        int arr[] = {0,0,1,3,5,3,2,2,6,1,6,8,9};
+        // int arr[] = {1,0,0,1,3,5,3,2,2,6,1,6,8,9};
+        int arr[] = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
         int steps[] = new int[arr.length];
 
-        int res = minJump(arr,steps);
-        if(res<0)
-            System.out.println("Not Possible  "+res);
-        else
-            System.out.println(res);
+        // int res = minJump(arr,steps);
+        // if(res<0)
+        //     System.out.println("Not Possible  "+res);
+        // else
+        //     System.out.println(res);
         // System.out.println(Arrays.toString(steps));
 
+        System.out.println(minJumpOptimal(arr));
 
         // int arr1[] = {0,0,2,3,1,1,4};
         // System.out.print(jump(arr1));

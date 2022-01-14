@@ -29,11 +29,13 @@ class MinSwapsSortArray{
 		for(int i=0; i<len;i++){
 			if(sorted[i]!=unsorted[i]){
 				swaps++;
-
-				int curr_unsorted_element = unsorted[i]; //aux variable-> value of unsorted[i] changes after swapping
+				
+				//aux variable-> value of unsorted[i] changes after swapping
+				int curr_unsorted_element = unsorted[i];
 				swap(unsorted, i, map.get(sorted[i]));
 				map.put(curr_unsorted_element,map.get(sorted[i]));
 				map.put(sorted[i],i);
+				
 			}
 		}
 		System.out.println(Arrays.toString(unsorted));

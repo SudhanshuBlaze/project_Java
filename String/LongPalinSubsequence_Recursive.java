@@ -27,7 +27,7 @@ class LongPalinSubsequence_Recursive{
 
 		// if match is not found, then keep branching
 		else
-			return Math.max(getLps(str,lo+1,hi, dp),getLps(str,lo,hi-1, dp));
+			return dp[lo][hi]=Math.max(getLps(str,lo+1,hi, dp),getLps(str,lo,hi-1, dp));
 			// return getLps(str,lo+1,hi)+getLps(str,lo,hi-1); //use this to get count of PalinSubs
 		
 		//        L(0, 5)

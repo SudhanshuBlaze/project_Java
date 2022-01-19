@@ -1,4 +1,3 @@
-
 import java.util.*;
 class All_Indexes_recur{
 	public static void main(String args[]){

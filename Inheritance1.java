@@ -19,7 +19,7 @@ class Derived1 extends Derived{
         return 2;
     }
 }
-class Inheritence1{
+class Inheritance1{
     public static void main (String[] args) {
         /* code */
         Base baseRef = new Derived1();

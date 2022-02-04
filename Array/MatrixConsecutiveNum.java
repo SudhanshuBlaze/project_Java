@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 /* Desc: Check if do we get the same number consecutively at leat 4
 times in any fashion(Vertically, horizontally, diagnoly).
 if we get multiple values, then print minimum of them */
@@ -27,16 +26,26 @@ class MatrixConsecutiveNum{
 
 		for(int i=0;i<rows;i++)
 			for(int j=0;j<cols;j++){
+				// horizontally
 				if(j<cols-3 &&
 					areEqual(mat[i][j],mat[i][j+1],mat[i][j+2],mat[i][j+3]))
 					min= Math.min(min,mat[i][j]);
+				// vertically
 				if(i<rows-3 && 
 					areEqual(mat[i][j],mat[i+1][j],mat[i+2][j],mat[i+3][j]))
 					min= Math.min(min,mat[i][j]);
-
+				// diagnoly-> bottom-to-top
+				// Intuition: We are substracting upto -3 from 'i', so we need to start 'i'
+				// from 3 or else index will be negative, and we are adding upto +3 in j
+				// so we need to make sure 'j' does get equals to 'cols' as cols is the boundary
 				if(i>=3 && j<cols-3 &&
 					areEqual(mat[i][j],mat[i-1][j+1],mat[i-2][j+2], mat[i-3][j+3]))
 					min= Math.min(min,mat[i][j]);
+				// diagnoly top-to-bottom
+				// intuition behind the condition: 'rows' and 'cols' are boundary
+				// we are adding upto '+3' to 'i' and 'j' so we need to substract that
+				// 'value' from the boundary to prevent overflow. 'i' cannot be equal to 'row'
+				// so we are using '<' symbol
 				if(i<rows-3 && j<cols-3 &&
 					areEqual(mat[i][j],mat[i+1][j+1],mat[i+2][j+2],mat[i+3][j+3]))
 					min= Math.min(min,mat[i][j]);
@@ -45,4 +54,4 @@ class MatrixConsecutiveNum{
 	}
 }
 
-
+// shielded-thicket-30585

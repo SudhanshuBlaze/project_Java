@@ -53,5 +53,3 @@ class MatrixConsecutiveNum{
 			return min;
 	}
 }
-
-// shielded-thicket-30585

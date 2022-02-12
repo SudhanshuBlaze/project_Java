@@ -2,7 +2,7 @@ import java.util.*;
 class KMP{
 	public static void main(String args[]){
 		String txt = "AAAAAAAAAAAAAAAAAB";
-   		String pat = "AAAAB";
+   		String pat = "aazyaac";
 
    		KMPsearch(txt,pat);
 	}
@@ -35,11 +35,14 @@ class KMP{
 	}
 
 	static void lps(char[] pattern , int lps[]){
+		// 'i' starts from 1 because a string of signle char will have lps value of 1
 		int i=1;  //moves linearly
 		int slow_idx = 0;
 
 		while(i<lps.length){
 			if(pattern[i]==pattern[slow_idx]){
+				// only increment slow_idx when there is a match because slow_idx is the value
+				// of longest prefix and suffix
 				slow_idx++;
 				lps[i]=slow_idx;
 				i++;
@@ -47,7 +50,7 @@ class KMP{
 			//search for previous pattern
 			else {
 				if(slow_idx!=0){
-					slow_idx=lps[slow_idx-1];
+					slow_idx=lps[slow_idx-1];  //send slow_idx to previous step
 				}
 
 				else{

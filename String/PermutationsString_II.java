@@ -1,15 +1,15 @@
 //Time Complexity: O(N^3)
 import java.util.*;
 class PermutationsString_II{
+	static Set<String> set = new HashSet<>();
 
 	public static void main(String args[]){
 		StringBuilder available=new StringBuilder("IOG");
 		StringBuilder chosen = new StringBuilder("");
-		Set<String> set = new HashSet<>();
-		permute(available, chosen, set);
+		permute(available, chosen);
 	}
 
-	static void permute(StringBuilder available, StringBuilder chosen, Set<String> set){
+	static void permute(StringBuilder available, StringBuilder chosen){
 		indent(chosen);
 		System.out.println("permute("+available+", "+ chosen+")");
 
@@ -30,7 +30,7 @@ class PermutationsString_II{
 			chosen.append(choose);
 
 			//explore that path
-			permute(available, chosen, set);
+			permute(available, chosen);
 
 			//unchoose-> back track
 			available.insert(i, choose);

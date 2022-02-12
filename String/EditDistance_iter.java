@@ -1,9 +1,9 @@
-//Top down approach, but bottom up approach is preferred
+// Top down approach, but bottom up approach is preferred
 import java.util.*;
 class EditDistance_iter{
 
 	public static void main(String args[]){
-
+		// convert str1 to str2
 		String str1 = "gesek";
 		String str2 = "geek";
 		System.out.println("\n Min Ops: "+computeMinDistance(str1, str2));
@@ -21,10 +21,17 @@ class EditDistance_iter{
 				else if(j==0)
 					dp[i][j]=i;
 				else {
+					// when we want to continue get the "diagnol" element
 					if(str1.charAt(i-1)==str2.charAt(j-1))
 						dp[i][j] =dp[i-1][j-1];
+					// when we want to perform operation, then use min() oro max() according
+					// the question
 					else
-						dp[i][j] =1+ Math.min(dp[i-1][j],Math.min(dp[i-1][j-1], dp[i][j-1]));
+						dp[i][j] =1+ Math.min(
+							dp[i-1][j],  //removing from str1
+							Math.min(
+								dp[i-1][j-1], 
+								dp[i][j-1]));  //inserting in str2
 				}
 			}
 		}

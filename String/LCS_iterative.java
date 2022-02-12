@@ -43,7 +43,7 @@ public class LCS_iterative{
 
 	public static void main(String[] args)
 	{
-		String s1 = "STROING";
+		String s1 = "STRONG";
 		String s2 = "LONGEST";
 
 		char[] X=s1.toCharArray();

@@ -1,17 +1,16 @@
 /* Following program is a Java implementation
 of Rabin Karp Algorithm given in the CLRS book
-
 Reference: https://medium.com/swlh/rabin-karp-algorithm-using-polynomial-hashing-and-modular-arithmetic-437627b37db6
 */
-public class Rabin_Karp{
+class Rabin_Karp{
 	// d is the number of characters in the input alphabet
 	public final static int d = 256;
 	
-	/* q -> A prime number,
-	The value for Q would usually be a large prime number 
-	— as large as it can be without compromising arithmetic performance.
-	The smaller the value of Q, the higher the chances of spurious hits.
-	*/
+	//  q -> A prime number,
+	// The value for 'q' would usually be a large prime number 
+	// — as large as it can be without compromising arithmetic performance.
+	// The smaller the value of 'q', the higher the chances of spurious hits.
+	
 	static void search(String pat, String txt, int q){
 		int M = pat.length();
 		int N = txt.length();
@@ -23,14 +22,16 @@ public class Rabin_Karp{
 		// The value of h would be "pow(d, M-1)%q"
 		for (i = 0; i < M-1; i++)
 			h = (h*d)%q;
+		// System.out.println(h);
 	
 		// Calculate the hash value of pattern and first
 		// window of text
 		for (i = 0; i < M; i++){
 			patHash = (d*patHash + pat.charAt(i))%q;
 			txtHash = (d*txtHash + txt.charAt(i))%q;
+		}
 
-		// Slide the pattern over text one by one
+			// Slide the pattern over text one by one
 		for (i = 0; i <= N - M; i++){
 	
 			// Check the hash values of current window of text
@@ -62,9 +63,8 @@ public class Rabin_Karp{
 	}
 	
 	/* Driver Code */
-	public static void main(String[] args)
-	{
-		String txt = "GEEKS FOR JEEK";
+	public static void main(String[] args){
+		String txt = "GEEKS FOR GEEK";
 		String pat = "GEEK";
 			
 		// A prime number

@@ -2,8 +2,8 @@
 import java.util.Arrays;
 class EditDistance{
 	public static void main(String args[]){
-		String s1 = "geek";
-		String s2 = "gesek";
+		String s1 = "gesek";
+		String s2 = "geek";
 		int dp[][] = new int[s1.length()][s2.length()];
 		for(int row[]: dp)
 			Arrays.fill(row,-1);
@@ -33,6 +33,6 @@ class EditDistance{
 
 // All these operations are done on s1
 
-// editDist(s1,s2,i,j+1); //insert
+// editDist(s1,s2,i,j+1); //insert  ge_ek, gesek
 // editDist(s1,s2,i+1,j+1);  //replace
-// editDist(s1,s2,i+1,j); // remove
+// editDist(s1,s2,i+1,j); // remove  gesek, geek

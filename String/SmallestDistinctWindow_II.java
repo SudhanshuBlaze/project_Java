@@ -41,7 +41,6 @@ class SmallestDistinctWindow_II{
                     if((i-start+1) < min_len){ //update min_len
                         min_len = i-start+1;
                         res_idx=start;
-
                     }
                 }
 

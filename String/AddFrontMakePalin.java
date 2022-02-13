@@ -5,16 +5,16 @@ how much starting portion of string is already in palindrom, ex: BCBA, because,
 its useless if later part is palindrome, ex: ABCB, 
 
 So we reverse the string and add it in the behind such that the starting palindrome part of 
-first string will be equal to its last portion which is also palindromic, pattern is matched here,
-and lps returns the number of char which is matched
+first string will be equal to its last portion which is also palindromic, pattern is matched 
+here, and lps returns the number of char which is matched
 */
 
 import java.util.*;
 class AddFrontMakePalin{
 
 	public static void main(String args[]){
-		// String s="CBABC";
-		String s="BCBA$ABCB";
+		String s="CBCABC";
+		// String s="BCBA$ABCB";
 		System.out.println(makePalin(s));
 	}
 
@@ -45,6 +45,7 @@ class AddFrontMakePalin{
 			else {
 				if(slow_idx!=0){
 					slow_idx=lps[slow_idx-1];
+					//note: not incrementing 'i' here
 				}
 
 				else{

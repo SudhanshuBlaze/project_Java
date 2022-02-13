@@ -2,7 +2,7 @@ import java.util.*;
 class KMP{
 	public static void main(String args[]){
 		String txt = "AAAAAAAAAAAAAAAAAB";
-   		String pat = "aazyaac";
+   		String pat = "AAAB";
 
    		KMPsearch(txt,pat);
 	}
@@ -37,7 +37,7 @@ class KMP{
 	static void lps(char[] pattern , int lps[]){
 		// 'i' starts from 1 because a string of signle char will have lps value of 1
 		int i=1;  //moves linearly
-		int slow_idx = 0;
+		int slow_idx = 0;  //slow_idx is also the current answer
 
 		while(i<lps.length){
 			if(pattern[i]==pattern[slow_idx]){
@@ -52,7 +52,7 @@ class KMP{
 				if(slow_idx!=0){
 					slow_idx=lps[slow_idx-1];  //send slow_idx to previous step
 				}
-
+				//here, slow_idx=0, we can't send it back further
 				else{
 					lps[i]=slow_idx;  //slow_idx=0
 					i++;

@@ -9,16 +9,14 @@ class search2dGridChar{
 	static int[] x = { -1, -1, -1, 0, 0, 1, 1, 1 };
 	static int[] y = { -1, 0, 1, -1, 1, -1, 0, 1 };
 
-	// This function searches in all
-	// 8-direction from point
-	// (row, col) in grid[][]
+	// This function searches in all 8-direction from point (row, col) in grid[][]
 	static boolean search2D(char[][] grid, int row, int col, String word){
 		int dir,i,rd, cd;
 		for( dir=0;dir<8;dir++) {
 			rd=row+x[dir];
 			cd=col+y[dir];
 
-			//start from because first char is already found
+			//start from '1' because first char is already found
 			for(i=1;i<word.length();i++){
 				//check for bounds
 				if(rd>=R || cd>=C || rd<0 || cd<0) //must not exceed limits
@@ -43,9 +41,8 @@ class search2dGridChar{
 		// point and search given word
 		for (int row = 0; row < R; row++) {
 			for (int col = 0; col < C; col++) {
-				if (search2D(grid, row, col, word))
-					System.out.println(
-						word+" pattern found at " + row + ", " + col);
+				if ( grid[row][col] == word.charAt(0) && search2D(grid, row, col, word))
+					System.out.println(word+" pattern found at " + row + ", " + col);
 			}
 		}
 	}

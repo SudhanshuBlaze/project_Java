@@ -1,7 +1,8 @@
+// series-> 1,11, 21, 1211, 111221
 class CountAndSay{
 
 	public static void main(String args[]){
-		System.out.println(count(3));
+		System.out.println(count(5));
 	}
 
 	static String count(int n){

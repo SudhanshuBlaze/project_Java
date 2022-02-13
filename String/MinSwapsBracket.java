@@ -1,9 +1,9 @@
-import java.util.Vector;
-class MinSwapsBracketBal{	
+import java.util.ArrayList;
+class MinSwapsBracket{	
 	public static long swapCount(String s){
 		
 		// Keep track of '['
-		Vector<Integer> pos = new Vector<Integer>();
+		ArrayList<Integer> pos = new ArrayList<Integer>();
 		for(int i = 0; i < s.length(); ++i)
 			if (s.charAt(i) == '[')
 				pos.add(i);
@@ -19,26 +19,20 @@ class MinSwapsBracketBal{
 		
 		char[] S = s.toCharArray();
 		
-		for(int i = 0; i < s.length(); ++i)
-		{
+		for(int i = 0; i < s.length(); ++i){
 			
-			// Increment count and move p
-			// to next position
-			if (S[i] == '[')
-			{
+			// Increment count and move p to next position
+			if (S[i] == '['){
 				++count;
 				++p;
 			}
 			else if (S[i] == ']')
 				--count;
 
-			// We have encountered an
-			// unbalanced part of string
-			if (count < 0)
-			{
+			// We have encountered an unbalanced part of string
+			if (count < 0){
 				
-				// Increment sum by number of
-				// swaps required i.e. position
+				// Increment sum by number of swaps required i.e. position
 				// of next '[' - current position
 				sum += pos.get(p) - i;
 				char temp = S[i];
@@ -46,8 +40,10 @@ class MinSwapsBracketBal{
 				S[pos.get(p)] = temp;
 				++p;
 
-				// Reset count to 1
-				count = 1;
+				// Reset count to 0
+				count = 0;
+				i++;  //increment extra '1' because it's balanced until next element,
+				// as after swapping at 'i' there is '[' and at i+1 there is ']'
 			}
 		}
 		return sum;

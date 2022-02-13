@@ -2,7 +2,7 @@
 import java.util.Arrays;
 public class LCS{
 
-	static int lcs( char[] s1, char[] s2, int i, int j,int dp[][] ){
+	static int lcs(char[] s1, char[] s2, int i, int j,int dp[][]){
 
 		if(i>=s1.length || j>=s2.length)
 			return 0;

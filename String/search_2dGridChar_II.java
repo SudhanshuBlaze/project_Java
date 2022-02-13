@@ -2,8 +2,9 @@ class search_2dGridChar_II{
 /* Approach: We are marking visited and then again we are putting the real value in
   it because if we do not put the real value then for different cases
   the '#' will be there */
-	static boolean findmatch(char mat[][], String pat, int x, int y,
-							int nrow, int ncol, int level){
+	static boolean findmatch(
+		char mat[][], String pat, int x, int y,int nrow, int ncol, int level){
+
 		// Pattern matched
 		if (level == pat.length())
 			return true;
@@ -12,8 +13,7 @@ class search_2dGridChar_II{
 		if (x < 0 || y < 0 || x >= nrow || y >= ncol || mat[x][y] != pat.charAt(level))
 			return false;
 
-			// If grid matches with a letter while recursion
-			// Marking this cell as visited
+			// If grid matches with a letter while recursion Marking this cell as visited
 		char temp = mat[x][y];
 		mat[x][y] = '#';
 
@@ -32,8 +32,7 @@ class search_2dGridChar_II{
 	// Function to check if the word exists in the grid or not
 	static int checkMatch(char mat[][], String pat, int nrow, int ncol){
 		int count = 0;
-		// if total characters in matrix is
-		// less then pattern lenghth
+		// if total characters in matrix is less then pattern length
 		if (pat.length() > nrow * ncol)
 			return 0;
 
@@ -43,6 +42,7 @@ class search_2dGridChar_II{
 				// If first letter matches, then recur and check
 				if (mat[i][j] == pat.charAt(0))
 					if (findmatch(mat, pat, i, j, nrow, ncol, 0)){
+						System.out.println("pattern '"+pat+"' found at "+i+","+j);
 						count++;
 					}
 			}
@@ -51,15 +51,15 @@ class search_2dGridChar_II{
 }
 
 	public static void main(String[] args){
-		// char grid[][] = {    "axmy".toCharArray(),
+		// char grid[][] = {   "axmy".toCharArray(),
 		// 										 "bgdf".toCharArray(),
 		// 										 "xeet".toCharArray(),
 		// 										 "raks".toCharArray() };
 
-		char grid[][] = {   "axmy".toCharArray(),
-												"bagf".toCharArray(),
-												"geet".toCharArray(),
-												"raks".toCharArray() };
+		char grid[][] = {"axmy".toCharArray(),
+										 "bagf".toCharArray(),
+										 "geet".toCharArray(),
+										 "raks".toCharArray() };
 
 		// Function to check if word exists or not
 		int r=grid.length;

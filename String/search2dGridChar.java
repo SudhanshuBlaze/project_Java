@@ -13,6 +13,7 @@ class search2dGridChar{
 	static boolean search2D(char[][] grid, int row, int col, String word){
 		int dir,i,rd, cd;
 		for( dir=0;dir<8;dir++) {
+			//move one step further because curr 'char' matches with first 'char' of word
 			rd=row+x[dir];
 			cd=col+y[dir];
 
@@ -41,7 +42,7 @@ class search2dGridChar{
 		// point and search given word
 		for (int row = 0; row < R; row++) {
 			for (int col = 0; col < C; col++) {
-				if ( grid[row][col] == word.charAt(0) && search2D(grid, row, col, word))
+				if (grid[row][col] == word.charAt(0) && search2D(grid, row, col, word))
 					System.out.println(word+" pattern found at " + row + ", " + col);
 			}
 		}

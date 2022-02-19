@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class AnagramsPrintAll {
 
-	static ArrayList<ArrayList<String> >solver(ArrayList<String> list){
+	static ArrayList<ArrayList<String>> solver(ArrayList<String> list){
 		HashMap<HashMap<Character, Integer>, ArrayList<String>>
 			map = new HashMap<HashMap<Character, Integer>,ArrayList<String> >();
 		

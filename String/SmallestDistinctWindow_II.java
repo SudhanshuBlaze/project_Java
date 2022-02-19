@@ -27,7 +27,7 @@ class SmallestDistinctWindow_II{
 
             if(frequency[str.charAt(i)]==0){
                 frequency[str.charAt(i)]++;
-                count++;
+                count++;  //increase count when distinct element found
             }
             else
                 frequency[str.charAt(i)]++;

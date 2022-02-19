@@ -20,7 +20,7 @@ public class SmallestSubstringWindow {
         	arrMap2[c]++;   //freq table for string 2(pattern)
 
         int matchCount=0;
-        //collection
+        // collection
         for(int i = 0, start = 0; i < s1.length(); i++){
 	        char c = s1.charAt(i);
 	        // if the char is present in string 2
@@ -36,7 +36,7 @@ public class SmallestSubstringWindow {
                     //because in substring() the last char is ignored by default
 
 	        	char chstart=s1.charAt(start);
-	        	//freq should not go below 0
+	        	// freq should not go below 0
 	        	if(arrMap[chstart]!=0)
 	        		arrMap[chstart]--;
 	        	//kaam ka banda gawaya hai, decrement matchCount
@@ -53,41 +53,41 @@ public class SmallestSubstringWindow {
 
 	
 
-// 	    int ans = Integer.MAX_VALUE;
-// 	    int matchcount = 0;
-// 	    int[] fans = new int[2];
-// 	    for(int i = 0, j = 0; i < s1.length(); i++){
-// 	        char c = s1.charAt(i);
-// 	        if(map2.containsKey(c)){
-// 	            map1.put(c,map1.getOrDefault(c,0) + 1);
-// 	            if(map1.get(c) <= map2.get(c)){
-// 	                matchcount++;
-// 	            }
-// 	            while(matchcount == s2.length()){
-// 	                char chj = s1.charAt(j);
-// 	                if(!map1.containsKey(chj)){
-// 	                    //nothing
-// 	                }else if(map1.get(chj) > map2.getOrDefault(chj,0)){
-// 	                    map1.put(chj,map1.get(chj) - 1);
-// 	                }else{
-// 	                    if(i - j + 1 < ans){
-// 	                        ans = i - j + 1;
-// 	                        fans[0] = i;
-// 	                        fans[1] = j;
-// 	                    }
-// 	                    map1.put(chj,map1.get(chj) - 1);
-// 	                    if(map1.get(chj) < 0){
-// 	                        map1.remove(chj);
-// 	                    }
-// 	                    matchcount--;
-// 	                }
-// 	                j++;
-// 	            }
+	    // int ans = Integer.MAX_VALUE;
+	    // int matchcount = 0;
+	    // int[] fans = new int[2];
+	    // for(int i = 0, j = 0; i < s1.length(); i++){
+	    //     char c = s1.charAt(i);
+	    //     if(map2.containsKey(c)){
+	    //         map1.put(c,map1.getOrDefault(c,0) + 1);
+	    //         if(map1.get(c) <= map2.get(c)){
+	    //             matchcount++;
+	    //         }
+	    //         while(matchcount == s2.length()){
+	    //             char chj = s1.charAt(j);
+	    //             if(!map1.containsKey(chj)){
+	    //                 //nothing
+	    //             }else if(map1.get(chj) > map2.getOrDefault(chj,0)){
+	    //                 map1.put(chj,map1.get(chj) - 1);
+	    //             }else{
+	    //                 if(i - j + 1 < ans){
+	    //                     ans = i - j + 1;
+	    //                     fans[0] = i;
+	    //                     fans[1] = j;
+	    //                 }
+	    //                 map1.put(chj,map1.get(chj) - 1);
+	    //                 if(map1.get(chj) < 0){
+	    //                     map1.remove(chj);
+	    //                 }
+	    //                 matchcount--;
+	    //             }
+	    //             j++;
+	    //         }
 	           
-// 	        }    
+	    //     }    
 	        
-// 	    }
-// 	    if(fans[0] == fans[1] && s2.length() != 1){
-// 	        return "";
-// 	    }else
-// 	    return (s1.substring(fans[1],fans[0] + 1));
+	    // }
+	    // if(fans[0] == fans[1] && s2.length() != 1){
+	    //     return "";
+	    // }else
+	    // return (s1.substring(fans[1],fans[0] + 1));

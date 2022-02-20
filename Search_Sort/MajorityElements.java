@@ -9,8 +9,9 @@ class MajorityElements{
 		int count = 0;
 		int candidate= 0;
 		for(int e: arr){
-			if(count==0)
+			if(count==0) //then update the candidate
 				candidate=e;
+			// note: another if, because count would be '0', when updating candidate
 			if(e==candidate)  // count of every element is 1
 				count++;
 			else 

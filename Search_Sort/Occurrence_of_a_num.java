@@ -1,4 +1,4 @@
-// Coubting First and Last Occurrence of a number : O(log(n))
+// Counting First and Last Occurrence of a number : O(log(n))
 // Whenever you have a sorted array think in terms of Binary Search
 
 class Occurrence_of_a_num{

@@ -50,8 +50,8 @@ public class TransformMinOps {
 		return res;	
 	}
 	public static void main(String[] args){
-		// String A = "EACBD";
-		// String B = "EABCD";
+		String A = "EACBD";
+		String B = "EABCD";
 
 		// String A = "BAD";
 		// String B = "ABD";

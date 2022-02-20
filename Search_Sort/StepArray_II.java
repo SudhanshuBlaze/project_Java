@@ -1,6 +1,6 @@
 class StepArray_II{
 	public static void main (String [] args) {
-		int arr[] = { 2, 4, 5, 7, 7, 6 };
+		int arr[] = {5,3,5,7, 7, 6 };
         int key = 6;
         int steps = 2;
         int n = arr.length;

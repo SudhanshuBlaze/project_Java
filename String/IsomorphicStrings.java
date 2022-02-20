@@ -22,10 +22,10 @@ class IsomorphicStrings{
 		for(int i=0; i<s1.length(); i++){
 			if(s1.length()!=s2.length())
 				return false;
-
+			// if this condition is true then it means '1' character is mapped but other is not
 			if( map1[s1.charAt(i)-'a']==0 &&  map2[s2.charAt(i)-'a']==0){
 				
-			//placing the char of 2nd string into one in the position of first char and vice versa
+			// placing the char of 2nd string into one in the position of first char and vice versa
 				map1[s1.charAt(i)-'a']=s2.charAt(i);
 				map2[s2.charAt(i)-'a']= s1.charAt(i);
 			}

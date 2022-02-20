@@ -3,8 +3,8 @@ import java.util.*;
 class BsearchCircularArr{
 
 	public static void main(String[] args){
-		int arr[] = {5,6,7,8,9,9,1,2,3,4};
-		System.out.println((search(arr,9)));
+		int arr[] = {5,6,7,8,8,9,1,2,3,4};
+		System.out.println((search(arr,8)));
 	}
 	static int search(int[] arr,int x){
 		int mid, low=0, high=arr.length-1;

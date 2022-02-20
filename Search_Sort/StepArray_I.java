@@ -1,5 +1,4 @@
-// Java program to search an element in an
-// array where difference between all
+// Java program to search an element in an array where difference between all
 // elements is 1
 
 import java.io.*;
@@ -8,7 +7,7 @@ class StepArray_I {
 	static int search(int arr[], int N, int key){
 		for(int i= 0;i<N;i++){
 			// if(arr[i]<key){
-			// 	i+= key-arr[i];
+				// i+= key-arr[i];
 			// }
 			// else if(arr[i]>key){
 			// 	i+=arr[i]-key;

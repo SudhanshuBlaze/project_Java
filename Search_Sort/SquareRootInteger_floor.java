@@ -12,7 +12,7 @@
 				return mid;
 			else{
 				if(mid*mid<x){
-					res=mid;
+					res=mid;  //this will store the floor value of sqrt(n)
 					low=mid+1;
 				}
 				else{

@@ -21,6 +21,7 @@ class ThreeSum_Hash{
         	//creating new hash set at each step because we don't want to print duplicates
         	HashSet<Integer> s = new HashSet<Integer>();
 			int curr_sum = X - A[i];
+			// from here on it's basically the logic of "finding pair of given sum"
 			for (int j = i + 1; j < n; j++){
 
 				if (s.contains(curr_sum - A[j])){

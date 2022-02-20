@@ -6,14 +6,13 @@ import java.util.*;
 class FourSum_twoPointers{
 
 	public static void main(String and[]){
-		// int arr[] = {10,2,3,3,3,4,5,7,8};
-		// int target= 23;
+		int arr[] = {10,2,3,3,3,4,5,7,8};
+		int target= 23;
 
-		int arr[] = {0,0,1,1,2};
-		int target=3;
+		// int arr[] = {0,0,1,1,2};
+		// int target=3;
 		System.out.println(fourSum(arr, target));
 	}
-
 	static ArrayList<ArrayList<Integer>> fourSum(int arr[], int target){
 		ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
 		Arrays.sort(arr);
@@ -36,7 +35,8 @@ class FourSum_twoPointers{
 						quad.add(arr[lo]);
 						quad.add(arr[hi]);
 						res.add(quad);
-						//skipping duplicates
+						//skipping duplicates, since the array is sorted the duplicate 
+						// will be right next
 						while(lo<hi && arr[lo]==quad.get(2)) lo++;	
 						while(lo<hi && arr[hi]==quad.get(3)) hi--;
 					}

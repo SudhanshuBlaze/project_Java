@@ -27,7 +27,7 @@ class BsearchCircularArr{
 			 else if(arr[low]<=arr[mid]){	//checking if left part is sorted
 			 	if(x <arr[mid] && x>=arr[low]) 
 			 		high=mid-1;
-			 	else
+				else
 			 		low=mid+1;
 			 }
 		}	

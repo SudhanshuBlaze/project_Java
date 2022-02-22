@@ -14,6 +14,7 @@ class K_sorted_pq{
     }
     static void kSort(int arr[],int k) {
     	if(arr.length<k+1) return;
+    	
     	PriorityQueue<Integer> minHeap = new PriorityQueue<>();
     	//add first element and next k elements which are k+1 elements
     	for(int i=0;i<k+1;i++)

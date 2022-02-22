@@ -33,7 +33,8 @@ class MinSwapsSortArray{
 				//aux variable-> value of unsorted[i] changes after swapping
 				int curr_unsorted_element = unsorted[i];
 				swap(unsorted, i, map.get(sorted[i]));
-				map.put(curr_unsorted_element,map.get(sorted[i]));
+				// after swapping successfully update the map
+				map.put(curr_unsorted_element,map.get(sorted[i])); 
 				map.put(sorted[i],i);
 				
 			}

@@ -22,8 +22,8 @@ public class ZeroSubarrayWithSum{
 			set.add(sum);  // we are adding 0 in case if totalSum becomes 0, 
 			//then we have a 0 in the HashSet to check with
 			sum += element;
-      //Zero sum will only exist if the cumulative sum of the elements excluding the current element
-      //and after including the current element are equal
+      		//Zero sum will only exist if the cumulative sum of the elements excluding 
+			// the current element and after including the current element are equal
 			if (set.contains(sum - k)) {
 				count++;
 				found = true;

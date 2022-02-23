@@ -21,7 +21,7 @@ class JobSchedulingDP{
 		for(int i=0; i<arr.size();i++){
 			dp[i]=arr.get(i).profit;
 		}
-
+		// i=1 because first element cannot be merged 
 		for(int i=1; i<arr.size();i++){
 //check if current time can be merged with previous time or there is a overlapping
 			for(int j=0;j<i;j++){

@@ -1,4 +1,7 @@
-/*Given an array A of non-negative integers and a positive integer k, we have to divide A into k of fewer partitions such that the maximum sum of the elements in a partition, overall partitions is minimized.
+/*Given an array A of non-negative integers and a positive integer k, 
+we have to divide A into k of fewer partitions such that the maximum sum of the elements 
+in a partition, overall partitions is minimized.
+Note: any painter will only paint continuous sections of boards
 
 Time complexity: O(N*log(sum(arr[])))
 

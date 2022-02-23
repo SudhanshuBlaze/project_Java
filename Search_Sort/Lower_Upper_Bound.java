@@ -1,59 +1,48 @@
+// lower_bound returns '-1' when lower_bound is not found. Ex: arr[]={20,21}, key=22
+// upper_bound returns '-1' when upper_bound is not found. Ex: arr[]={20,21}, key=21,22
+
 class Lower_Upper_Bound{
-	static int lower_bound(int arr[], int N, int X){
-
-		// Initialise starting index and ending index
-		int low = 0;
-		int high = N-1;
-
-		while (low < high) {
-			int mid = low + (high - low) / 2;
-
-			if (X <= arr[mid])
-				high = mid;
-
-			else 
-				low = mid + 1;
-		}
-		// if X is greater than arr[n-1]
-		if(low < N && arr[low] < X) {
-		low++;
-		}
-		
-		// Return the lower_bound index
-		return low;
-	}
-
-	// Function to implement upper_bound
-	static int upper_bound(int arr[], int N, int X){
-		int low = 0;
-		int high = N-1;
-
-		//Note: Till low is less than high
-		while (low < high) {
-			int mid = low + (high - low) / 2;
-			if (arr[mid]<=X)
-				low = mid + 1;
-			
-			else 
-				high = mid;
-		}
-		// if X is greater than arr[n-1]
-		if(low < N && arr[low] <= X)
-			low++;
-	
-		return low;
-	}
-
-
-	// Driver Code
-	public static void main(String[] args){
-		int arr[] = { 4,6, 10, 12, 18, 20 ,20};
-		int N = arr.length;
+	public static void main(String args[]){
+		int arr[] = {4,6,6, 10, 12, 18, 20 ,20};
+		int len = arr.length;
 
 		// Element whose lower bound and upper bound to be found
-		int X = 6;
-		System.out.println(lower_bound(arr, N, X));
-		System.out.println(upper_bound(arr, N, X));
+		// int key =22;
+		// int key =3;
+		int key =6;
+
+		System.out.println("lb: "+lower_bound(arr, len, key)); 
+		System.out.println("ub: "+upper_bound(arr, len, key));
 	}
 
+	static int lower_bound(int[] arr, int len, int key){
+		int lo=0, hi=len-1,res=-1;
+		while(lo<=hi){
+			int mid=lo+(hi-lo)/2;
+			// result will be stored when "key" is found OR a 'num' greater than key is found
+			if(arr[mid]>=key){
+				res=mid;
+				hi=mid-1;
+			} 
+			else if(arr[mid]<key){
+				lo=mid+1;
+			}
+		}
+		return res;
+	}
+
+	static int upper_bound(int []arr, int len, int key){
+		int lo=0, hi=len-1, res=-1;
+		while(lo<=hi){
+			int mid=lo+(hi-lo)/2;
+			if(arr[mid]>key){
+				res=mid;
+				hi=mid-1;
+			}
+			else if(arr[mid]<=key){
+				lo=mid+1;
+			}
+		}
+		return res;
+	}
 }

@@ -26,6 +26,7 @@ class SmallestFactTrailingZeroes{
 
 	static boolean isValid(int currFact,int reqdZeroes){
 		int cntFive =0;
+		//Ex: currFact=25, cnt+=25/5 -> cnt=5; cnt+=25/25 -> cnt=6
 		for (int i=5; currFact/i>=1; i*=5){
 			cntFive+=currFact/i;
 		}

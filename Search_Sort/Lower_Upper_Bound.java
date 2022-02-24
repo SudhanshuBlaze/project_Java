@@ -1,3 +1,4 @@
+// to get the below output remove the ternary operator before return statement
 // lower_bound returns '-1' when lower_bound is not found. Ex: arr[]={20,21}, key=22
 // upper_bound returns '-1' when upper_bound is not found. Ex: arr[]={20,21}, key=21,22
 
@@ -7,9 +8,9 @@ class Lower_Upper_Bound{
 		int len = arr.length;
 
 		// Element whose lower bound and upper bound to be found
-		// int key =22;
+		int key =22;
 		// int key =3;
-		int key =6;
+		// int key =6;
 
 		System.out.println("lb: "+lower_bound(arr, len, key)); 
 		System.out.println("ub: "+upper_bound(arr, len, key));
@@ -28,6 +29,8 @@ class Lower_Upper_Bound{
 				lo=mid+1;
 			}
 		}
+		res= res==-1 ? arr.length : res; //if you dont want "-1" when the "lo" goes
+		// out of array 
 		return res;
 	}
 
@@ -43,6 +46,8 @@ class Lower_Upper_Bound{
 				lo=mid+1;
 			}
 		}
+		res= res==-1 ? arr.length : res;  //if you dont want "-1" when the "lo" goes
+		// out of array 
 		return res;
 	}
 }

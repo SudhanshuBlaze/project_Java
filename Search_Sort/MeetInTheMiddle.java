@@ -29,7 +29,7 @@ class MeetInTheMiddle{
 		int size_X = 1 << (n / 2);
 		int size_Y = 1 << (n - n / 2);
 		
-		// Sort Y (we need to do doing binary search in it)
+		// Sort Y (we need to use binary search on it)
 		Collections.sort(Y);
 		
 		// To keep track of the maximum sum

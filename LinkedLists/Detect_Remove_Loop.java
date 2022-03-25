@@ -40,8 +40,7 @@ class Detect_Remove_Loop{
             slow = slow.next;
             fast = fast.next.next;
 
-            // If slow and fast meet at same point then loop
-            // is present
+            // If slow and fast meet at same point then loop is present
             if (slow == fast) {
                 removeLoop(slow, head);
                 return true;
@@ -55,7 +54,6 @@ class Detect_Remove_Loop{
         Node newEntry = head, inLoop = null;
          // Set a pointer to the beginning of the Linked List
          // and move it one by one to find the first node which is part of the Loop
-        newEntry = head;
         while (true) {
             /* Now newEntry a pointer from meetPoint_node and check if it ever reaches inLoop */
             inLoop = meetPoint;  //re-initialize

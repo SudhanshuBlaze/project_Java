@@ -13,9 +13,9 @@ class MergeSortLList{
 	static Node merge(Node a, Node b){ 
 	    Node result = null; 
 	    if (a == null) 
-	        return (b); 
+	        return b; 
 	    else if(b == null) 
-	        return (a); 
+	        return a; 
 	    if(a.data < b.data) { 
 	        result = a; 
 	        result.next = merge(a.next, b); 
@@ -29,7 +29,7 @@ class MergeSortLList{
 	/*NOTE: if there are 4 nodes we need to stop at 2nd node, which is not the 
 	case in usual getMiddle()
 	Reason: if there are 2 nodes we need to return 1st node as middle,
-	due to this firstHalf will conatain one node and second half will contain another
+	due to this firstHalf will contain one node and second half will contain another
 	*/
 	static Node getMiddle(Node head){
 		Node fast = head,slow=head;
@@ -43,8 +43,8 @@ class MergeSortLList{
 		//Only 1 element is left
 		if(head==null || head.next==null)
 			return head;
-
 		Node mid=getMiddle(head);
+
 		//de-link the firstHalf else it will not hit null instead 
 		//it will continue to the secondHalf
 		Node nextMid=mid.next;

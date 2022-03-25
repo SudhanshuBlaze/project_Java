@@ -7,14 +7,15 @@ class AddOneLList{
 		ll.addLast(3);
 		ll.addLast(8);
 		ll.addLast(9);
+		ll.addLast(9);
 		Node head=ll.head; 
 		addOne(head);
 		ll.printList(head);
 	}
 	static void addOne(Node head) {
-		Node curr=head, last9=head;;
+		Node curr=head, last9=head;
 		if(head.next == null){
-			head.data+=1;
+			head.data+=1; 
 			return;
 		}
 		/*This loop is used to move last9: pointer will go upto the second last node 

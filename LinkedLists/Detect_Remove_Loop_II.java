@@ -1,14 +1,15 @@
 /*Approach: 
     dist by fast= 2(dist by slow)
-    => 2(L1+L2)= L1+L2+nC       
-    => L1+L2= nC 
+    => L1+L2+nC=2(L1+L2)       
+    => nC=L1+L2 
     => L1=nC-L2
     Where,L1 is length from Head to cycleHead,
-    L2 is length from cycleHead to meetPoint 
+    L2 is length from cycleHead to meetPoint, 'nC' is number of rotations or circles,
+    C= length of cycle
 
 Approach of remove(): 
-    run the meet pointer entirely in the loop an check whether start pointer 
-    has reached the loop head or not.
+    We have 2 pointers: meetPoint and newEntry(=head)
+    from the meetpoint increment the meetpoint pointer and newEntry pointer one by one
 
 Working: 
     In the beginning the slow and fast pointer start from same position, 
@@ -53,9 +54,8 @@ class Detect_Remove_Loop_II{
             slow = slow.next;
             fast = fast.next.next;
 
-            // If slow and fast meet at same point then loop
-            // is present
-            if (slow == fast) {
+            // If slow and fast meet at same point then loop is present
+            if (slow == fast) { 
                 removeLoop(slow, head);
                 return true;
             }
@@ -71,16 +71,15 @@ class Detect_Remove_Loop_II{
                 meetPoint=meetPoint.next;
                 newEntry=newEntry.next;
             }
-            meetPoint.next=null;
+            meetPoint.next=null;  //terminate loop
         }
-        /* Corner case: if fast and slow pointer meet at first position of cycle,
-        This case is occured only in case of Circular LinkedList */
+        /* Corner case: if fast and slow pointer meet at first position of cycle*/
         else{
             while(meetPoint.next!=newEntry){
-                meetPoint=meetPoint.next;
+                meetPoint=meetPoint.next;  //finding the tail
             }
             //this will lead to Tail or element previous of Head
-            meetPoint.next=null;
+            meetPoint.next=null;  //terminate loop
         }
      }
 }

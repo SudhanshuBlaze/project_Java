@@ -1,3 +1,4 @@
+// Time complexity: O(N+M)
 class IntersectionOfLList{
 	public static void main(String[] args){
         // list 1
@@ -9,6 +10,7 @@ class IntersectionOfLList{
         l1.next.next.next.next = new Node(5);
         l1.next.next.next.next.next = new Node(6);
         l1.next.next.next.next.next.next = new Node(7);
+
         // list 2
         Node l2 = new Node(10);
         l2.next = new Node(9);
@@ -25,8 +27,8 @@ class IntersectionOfLList{
     		return -1;
     	Node a=l1;
     	Node b=l2;
-    	/*NOTE: if there is no intersection point the a,b will become null, and then 
-    	they will become equal and the loop ends*/
+    	/*NOTE: if there is no intersection point the a,b will become null at the same time,
+         and then they will be equal, this will terminate the loop*/
     	while(a!=b){
     		a= a==null ? l2:a.next;
     		b= b==null ? l1:b.next;

@@ -1,3 +1,5 @@
+// Time: O(N*N*M)
+
 class Flatten_LList{
 	Node head;
 	class Node
@@ -9,7 +11,8 @@ class Flatten_LList{
 			this.data = data;
 			next = null;
 			bottom = null;
-		}}
+		}
+	}
 
 	Node merge(Node a, Node b){
 		// if first linked list is empty then second is the answer

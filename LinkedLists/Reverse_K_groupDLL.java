@@ -17,7 +17,7 @@ class Reverse_K_groupDLL{
 		list.addLast(5);
 		list.addLast(6);
 		list.addLast(7);
-		list.addLast(8);
+		list.addL`ast(8);
 		System.out.println("Modified list");
 		Node res=reverseGroup(list.head,3);
 		list.printList(res);
@@ -42,7 +42,7 @@ class Reverse_K_groupDLL{
 		if(nex!=null){
 			head.next=reverseGroup(nex,k);
 			System.out.println("head: "+head.data);
-			head.next.prev=head;
+			head.next.prev=head;  //remember: nex!=null
 		}
 		return newHead;
 	}

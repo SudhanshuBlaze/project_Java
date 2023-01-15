@@ -40,7 +40,7 @@ class MergeSortLList{
 		return slow;
 	}
 	static Node sort(Node head){
-		//Only 1 element is left
+		// Only 1 element is left
 		if(head==null || head.next==null)
 			return head;
 		Node mid=getMiddle(head);

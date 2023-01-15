@@ -37,7 +37,7 @@ class DeletionCircularList{
         	//move prev to last node or previous to head/curr
             while (prev.next != head) prev = prev.next;
             head = curr.next;
-            prev.next = head;
+            prev.next = head;   //update tail
         }
  
         //CASE:2 if it is Last node

@@ -3,8 +3,6 @@ class PalindromeLList{
 		LinkedList ll=new LinkedList();
 		ll.addLast(10);
 		ll.addLast(20);
-		ll.addLast(30);
-		ll.addLast(30);
 		ll.addLast(20);
 		ll.addLast(10);
 		Node head=ll.head; 
@@ -18,7 +16,7 @@ class PalindromeLList{
 
 		Node slow=head,fast=head;
 		//find the middle of linked list in O(N/2)
-		while(fast!=null && fast.next!=null){
+		while(fast.next!=null && fast.next.next!=null){
 			slow=slow.next;
 			fast=fast.next.next;
 		}

@@ -33,7 +33,7 @@ class Reverse_K_group{
 		while(count>=k){
 			//curr points to first element of the group for entire iteration of that grp
 			curr = prev.next; //don't do curr=curr.next because
-			// initially it's pointing to null, due to previous size count for-loop
+			// initially it's pointing to null, due to previous 'size' count for-loop
 
 			//nex pointer moves in between iterations
 			nex=curr.next;

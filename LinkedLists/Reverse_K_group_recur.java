@@ -29,7 +29,7 @@ class Reverse_K_group_recur{
 			curr=nex;
 			count++;
 		}
-		size-=count;
+		size-=count;  //update remaining size
 		if(nex!=null)
 			head.next=reverseGroup(nex,k,size);
 		

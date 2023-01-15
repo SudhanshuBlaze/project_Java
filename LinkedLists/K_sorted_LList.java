@@ -27,6 +27,7 @@ class K_sorted_LList{
 		PriorityQueue<Node> minHeap= new PriorityQueue<>((a,b)->a.data-b.data);
 		for(int i=0;i<k+1;i++,head=head.next)
 			minHeap.add(head);
+		
 		Node newHead=null, curr=null;
 		while(!minHeap.isEmpty()) {
 			Node top=minHeap.poll();

@@ -12,6 +12,7 @@ class SplitCircularLList{
 	        while(curr.next !=null)
 	        	curr=curr.next;
 	        curr.next=list.head;
+
         System.out.println("Original List");
         printCircularList(list.head);
         System.out.println("Split Lists:");
@@ -40,7 +41,7 @@ class SplitCircularLList{
  		/*if odd num of elements then fast stops at last node, 
  		but in case of even number of elements then we manually need to increment by 1*/
  		if(fast.next!=head)
- 			fast=fast.next;
+ 			fast=fast.next;  //take fast to the last node, it'll be used to split
 
  		Node head1=head;
  		Node head2=slow.next;
